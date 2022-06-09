@@ -67,16 +67,24 @@ header .container {
     justify-content: center;
 }
 
-.fisrt-three {
+.slideshow {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding-left: 10px;
+    width: 180px;
+    overflow: hidden;
+    transition: all 750ms ease;
 }
-.fisrt-three img {
-    padding-left: 20px;
+
+.partners-logo {
+    display: flex;
+    align-items: center;
+}
+
+.partners-logo img {
     width: 55px;
+    padding-left: 20px;
 }
+
 
 .logo {
     display: flex;

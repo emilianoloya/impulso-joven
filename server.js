@@ -1,31 +1,26 @@
+//Import Dependecies
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
 require('dotenv/config');
-//const User = require("./models/User")
+
+//Import Routes
+const indexRoute = require('./routes/index');
+const authRoute = require('./routes/auth');
 
 //Connect to DB
- mongoose.connect(process.env.DB_CONNECTION, () => console.log('Connected to DataBase'));
+mongoose.connect(process.env.DB_CONNECTION, () => console.log("Connected to Database"));
 
 //Middlewares
 app.set('view-engine', 'ejs');
 app.use( express.static( "public" ) );
 app.use(express.urlencoded({ extended: false}));
-app.use(bodyParser.json());
+app.use(express.json());
 
-//Import Routes
-const indexRoute = require('./routes/index')
-const registerRoute = require('./routes/register')
-const loginRouter = require('./routes/login')
-//Get index route
+//Route Middlewares
 app.use('/', indexRoute);
+app.use('/api/user', authRoute);
 
-//Get login route
-app.use('/register', registerRoute);
-
-//Get register route
-app.use('/login', loginRouter);
-
-app.listen(3000);
+//Connection to Server
+app.listen(3000, () => console.log('Server is running'));
 
