@@ -9,7 +9,7 @@ const indexRoute = require('./routes/index');
 const authRoute = require('./routes/auth');
 
 //Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, () => console.log("Connected to Database"));
+mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true}, () => console.log("Connected to Database"));
 
 //Middlewares
 app.set('view-engine', 'ejs');

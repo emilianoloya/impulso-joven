@@ -1,0 +1,13 @@
+### 
+POST http://localhost:3000/api/user/register
+Content-Type: application/json
+
+{
+    "name": "Emiliano",
+    "lastname": "Loya",
+    "secondlastname": "Haces",
+    "phonenumber": "2281114356",
+    "username": "V1taminCmen",
+    "email": "emilianoloya@hotmail.com",
+    "password": "Spooney1213"
+}

@@ -6,6 +6,17 @@ const registerValidation = (data) => {
     const schema = Joi.object().keys({
         name: Joi.string()
             .required(),
+        lastname: Joi.string()
+                    .required(),
+        secondlastname: Joi.string()
+                        .required(),
+        phonenumber: Joi.string()
+                    .min(9)
+                    .max(10)
+                    .required(),
+        username: Joi.string()
+                .min(6)
+                .required(),
         email: Joi.string()
             .min(6)
             .required(),
@@ -14,7 +25,7 @@ const registerValidation = (data) => {
                 .required()
     });
     validation = schema.validate(data);
-    return validation
+    return validation;
 };
 
 module.exports.registerValidation = registerValidation;
