@@ -1,7 +1,7 @@
 //Import Dependecies
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
+const app = express();
 require('dotenv/config');
 
 //Import Routes
