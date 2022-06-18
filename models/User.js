@@ -1,15 +1,41 @@
 //Import mongoose depencecies to create user model.
+const string = require('@hapi/joi/lib/types/string');
 const mongoose = require('mongoose');
 
 //Creatig a model template for User
 const userSchema = new mongoose.Schema({
-    name: String,
-    lastname: String,
-    secondlastname: String,
-    phonenumber: String,
-    username: String,
-    email: String,
-    password: String
+    name: {
+        type: String,
+        required: true
+    },
+    lastname: {
+        type: String,
+        required: true
+    },
+    secondlastname: {
+        type: String,
+        required: true
+    },
+    phonenumber: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }, 
+    date: {
+        type: Date,
+        default: Date.now()
+    }
 });
 
 //Exports user model to use it in server.js
