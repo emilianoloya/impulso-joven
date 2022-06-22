@@ -20,12 +20,13 @@ mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true}, () => conso
 
 //Middlewares
 app.set('view-engine', 'ejs');
-app.use( express.static( "public" ) );
+app.use("/public", express.static( "public" ));
 app.use(express.urlencoded({ extended: false}));
 //Body Parser
 app.use(express.json());
 //Express Flash
 app.use(flash());
+//Express Session
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,

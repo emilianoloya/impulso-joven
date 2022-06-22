@@ -31,6 +31,9 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    description: {
+        type: String
     }, 
     date: {
         type: Date,

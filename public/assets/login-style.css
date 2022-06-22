@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+
+.big-wrapper {
+    display: flex;
+    min-height: 100vh;
+    
+}
+
+.form {
+    background-color: #ffff;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 4.5rem 3rem;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-title {
+    margin-bottom: 1rem;
+    color: #00aeef;
+}
+
+.form-paragrapgh {
+    font-weight: 300;
+}
+
+.form-link {
+    font-weight: 700;
+    color: #234093;
+    text-decoration: none;
+}
+
+.form-link:hover {
+    text-decoration: underline;
+}
+
+.form-container {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2.5rem;
+}
+
+.form-group {
+    position: relative;
+    --color: #5757577e;
+}
+
+.form-input {
+    width: 100%;
+    background: none;
+    color: #706c6c;
+    font-size: 1rem;
+    padding: .6rem .3rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+    font-family: "Ubuntu", sans-serif;
+}
+
+.form-input:focus  + .form-label, .form-input:not(:placeholder-shown) + .form-label{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: #00aeef;
+}
+
+.form-label {
+    color: var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.form-submit {
+    background: none;
+    color: #00aeef;
+    border-color: #00aeef;
+    border-style: solid;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8rem .4rem;
+    transition: .3s;
+}
+
+.form-submit:hover {
+    transform: scale(1.10);
+}
+
+.form-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #00aeef;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform .4s;
+}
+
+.form-input:focus  ~ .form-line, .form-input:not(:placeholder-shown) ~ .form-line {
+    transform: scale(1);
+}
+
+@media (max-width:425px) {
+    .form-title {
+        font-size: 1.8rem;
+    }
+}

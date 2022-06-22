@@ -61,34 +61,6 @@ header .container {
     display: none;
 }
 
-.partners-carousel .container {
-    background: var(--backgroundColor);
-    display: flex;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: space-evenly;
-    max-width: 500px;
-}
-
-.slideshow {
-    display: flex;
-    align-items: center;
-    width: 180px;
-    overflow: hidden;
-    transition: all 750ms ease;
-}
-
-.partners-logo {
-    display: flex;
-    align-items: center;
-}
-
-.partners-logo img {
-    width: 55px;
-    padding-left: 20px;
-}
-
-
 .logo {
     display: flex;
     align-items: center;
@@ -109,7 +81,7 @@ header .container {
 .links a {
     color: var(--mainColor);
     font-size: large;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     margin: 0 2.2rem;
     display: inline-block;
@@ -127,13 +99,12 @@ header .container {
     padding: 1rem 1.5rem;
     align-items: center;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .left {
-    margin-right: 15px;
-    border-radius: 15px;
-    padding: 1.5rem 1.5rem;
-    background-image: url("../B.png");
+    padding: 1.5rem;
+    background-image: url("../img/B.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -141,7 +112,11 @@ header .container {
 
 
 .right {
-    margin-left: 15px;
+    margin: auto;
+}
+
+.right img {
+    max-width: 650px;
 }
 
 .big-tittle h1{
@@ -178,7 +153,7 @@ header .container {
     font-weight: 500;
     font-size: 1.2rem;
     padding: .9rem 1.9rem;
-    color: #00aeef;
+    color: #00aeef !important;
     border-color: #00aeef;
     border-style: solid;
     border-width: 3px;
@@ -206,7 +181,7 @@ header .container {
 footer {
     width: 100%;
     padding: 50px 0px;
-    background-image: url(../wave.svg);
+    background-image: url(../img/wave.svg);
     background-size: cover;
 }
 
@@ -230,8 +205,8 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 300px;
-    padding: 0 10px;
+    max-width: 600px;
+    padding: 0 5rem;
 }
 
 .box-footer-logo img {
@@ -258,6 +233,7 @@ footer {
 
     .box-footer {
         max-width: 300px;
+        padding: 0 10px;
     }
 }
 
@@ -277,10 +253,6 @@ footer {
     .container-box-footer {
         max-width: 800px;
     }
-
-    .box-footer {
-        max-width: 300px;
-    }
 }
 
 @media screen and (max-width: 970px) {
@@ -297,11 +269,11 @@ footer {
     }
 
     .right {
-        margin: 0;
+        margin: 0 auto;
     }
 
     .left {
-        margin: 0;
+        margin: 0 auto;
     }
 
     .big-tittle {
@@ -387,6 +359,7 @@ footer {
 
     .box-footer {
         max-width: 250px;
+        padding: 0 10px;
     }
 
     .box-footer-logo {
