@@ -11,7 +11,7 @@ body {
 .big-wrapper {
     display: flex;
     min-height: 100vh;
-    
+    background: #f1f8fc;
 }
 
 .form {

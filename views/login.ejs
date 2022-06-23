@@ -1,7 +1,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/public/assets/login-style.css" type="text/css">
+    <link rel="stylesheet" href="/public/assets/auth-style.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="big-wrapper">
-        <form action="/api/user/login" class="form">
+        <form action="/api/user/login" method="POST" class="form">
             <h1 class="form-title">Iniciar Sesion</h1>
             <p class="form-paragrph">¿Aun no tienes una cuenta? <a href="register" class="form-link">Registrarse</a></p>
              <div class="form-container">
