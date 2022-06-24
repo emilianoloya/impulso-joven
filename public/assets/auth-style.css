@@ -12,6 +12,7 @@ body {
     display: flex;
     min-height: 100vh;
     background: #f1f8fc;
+    padding: 3rem 1rem;
 }
 
 .form {

@@ -1,0 +1,247 @@
+:root {
+    --mainColor: #234093;
+    --backgroundColor: #f1f8fc;
+    --lightText: #fff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu";
+}
+
+body {
+    background-color: var(--backgroundColor);
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    position: relative;
+    width: 400px;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 270px;
+    top: 0;
+    left: 0;
+    background-color: var(--mainColor);
+    clip-path: circle(400px at 50% -48.5%);
+}
+
+.header {
+    position: relative;
+    height: 265px;
+}
+
+.mail {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    opacity: .8;
+    transition: .3s;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.mail:hover {
+    transform: scale(1.10);
+    opacity: 1;
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    opacity: .8;
+    transition: .3s;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.hamburger-menu:hover {
+    transform: scale(1.10);
+    opacity: 1;
+}
+
+.main {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 20px;
+    left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .image {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: url(../img/La-gran-delicia.jpg) no-repeat center / cover;
+    border: 4px solid #fff;
+    margin-bottom: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image .hover{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(79, 172, 254, .7);
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    opacity: 0;
+}
+
+.image:hover .hover {
+    opacity: 1;
+}
+
+.name {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1;
+    margin: 5px 0;
+}
+
+.profile-type {
+    color: #fff;
+    line-height: 1;
+    margin: 5px 0;
+    font-weight: 200;
+}
+
+.content {
+    display: flex;
+    padding: 1.7rem 2.5rem 1.2rem 2.5rem;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.1rem;
+}
+
+.number {
+    font-size: 3rem;
+    font-weight: 200;
+    color: #333;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.number-title {
+    font-size: .72rem;
+    color: #666;
+    font-weight: 400;
+    line-height: 1px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.profile-qr {
+    margin-top: 1.4rem;
+}
+
+.profile-qr img{
+    width: 100px;
+}
+
+.title {
+    display: inline-block;
+    position: relative;
+    color: #00aeef;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0 0 3px 0;
+    margin-bottom: .9rem;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 50%;
+    background-color: #555;
+    bottom: 0;
+    left: 0;
+}
+
+.text {
+    color: #666;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.icons-container {
+    padding: 1rem 0;
+}
+
+.icon {
+    color: #c4c4c4;
+    font-size: 1.3rem;
+    text-decoration: none;
+    margin-right: 8px;
+    transition: .3s;
+}
+
+.icon:hover {
+    color: #00aeef;
+}
+
+.buttons-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.share-wrap {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.share-wrap:hover {
+    transform: scale(1.10);
+}
+
+.share {
+    color: #fff;
+    padding: 9.6px 11px;
+    border-radius: 5px;
+    width: 100%;
+    background: #234093;
+    text-align: center;
+    text-decoration: none;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
