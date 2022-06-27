@@ -1,5 +1,4 @@
 //Import mongoose depencecies to create user model.
-const string = require('@hapi/joi/lib/types/string');
 const mongoose = require('mongoose');
 
 //Creatig a model template for User

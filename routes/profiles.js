@@ -14,13 +14,14 @@ router.get('/:username', (req, res) => {
 //FUNCTIONS
 const getProfileByUsername = async (req, res) => {
     //Query database looking for matching Username in the URL.
-    const queryUsername = await User.findOne({username: req.params.username})
+    const user = await User.findOne({username: req.params.username})
     try {
         //If User not found in database send a status 404 else render Profile.
-        if (!queryUsername) {
+        if (!user) {
             res.status(404).send('User Not Found.');
         } else {
-            res.render('view-profile.ejs');
+            //If success render profile and fetch user data to view-profile.ejs.
+            res.render('view-profile.ejs', {user: user});
         }
     } catch (err) {
         //In case there is an error in the server send a status 500 and a log the error.
