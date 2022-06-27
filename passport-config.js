@@ -8,7 +8,7 @@ const User = require('./models/User');
 
 //Initialize Passport Function
 function initialize(passport) {
-    const authenticateUser = async(email, password, done) => {
+    const authenticateUser = async (email, password, done) => {
         const user = await User.findOne({ email: email})
         if (!user) {
             return done(null, false, { message: 'Email not registered'});

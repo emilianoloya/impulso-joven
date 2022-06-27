@@ -1,24 +1,21 @@
-//Import Dependecies
+//IMPORT DEPENDECIES
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
-//Import Model
+//IMPORT MODELS
 const User = require("../models/User");
 
-//GET Auth Routes
+//GET AUTH ROUTES
+//Get register page.
 router.get('/register', (req, res) => {
     res.render('register.ejs');
 });
-
+//Get login page.
 router.get('/login', (req, res) => {
     res.render('login.ejs');
 });
-
-router.get('/:username', (req, res) => {
-    res.render('profile.ejs');
-})
-
+//Get error page while trying save user.
 router.get('/status-400', (req, res) => {
     res.render('status-400.ejs')
 })
@@ -39,21 +36,21 @@ router.post('/register', async (req, res) => {
             email: req.body.email,
             password: hashPassword
         });
-        res.redirect('http://localhost:3000/api/user/login');
-    }catch (error) {
-        res.status(400).redirect('http://localhost:3000/api/user/status-400');
-
+        res.redirect('http://localhost:3000/auth/user/login');
+    }catch (err) {
+        res.status(400).redirect('http://localhost:3000/auth/user/status-400');
+        console.log(err);
     }
 });
 
 //LOGIN
 router.post('/login', passport.authenticate('local', {
-    successRedirect: 'http://localhost:3000/api/user/:id',
-    failureRedirect: 'http://localhost:3000/api/user/login',
+    successRedirect: ' ',
+    failureRedirect: 'http://localhost:3000/auth/user/login',
     failureFlash: true
 }));
 
-//Functions 
+//FUNCTIONS
 
 
 module.exports = router;
