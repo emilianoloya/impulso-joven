@@ -10,6 +10,7 @@ require('dotenv/config');
 //Import Routes
 const indexRoute = require('./routes/index');
 const authRoute = require('./routes/auth');
+const profileRoute = require('./routes/profiles');
 
 //Import Passport Configuration
 const initializePassport = require('./passport-config');
@@ -39,7 +40,8 @@ app.use(passport.session());
 
 //Route Middlewares
 app.use('/', indexRoute);
-app.use('/api/user', authRoute);
+app.use('/auth/user', authRoute);
+app.use('/profile', profileRoute);
 
 //Connection to Server
 app.listen(3000, () => console.log('Server is running'));

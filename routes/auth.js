@@ -15,7 +15,7 @@ router.get('/login', (req, res) => {
     res.render('login.ejs');
 });
 
-router.get('/profile', (req, res) => {
+router.get('/:username', (req, res) => {
     res.render('profile.ejs');
 })
 
@@ -48,9 +48,12 @@ router.post('/register', async (req, res) => {
 
 //LOGIN
 router.post('/login', passport.authenticate('local', {
-    successRedirect: 'http://localhost:3000/api/user/profile',
+    successRedirect: 'http://localhost:3000/api/user/:id',
     failureRedirect: 'http://localhost:3000/api/user/login',
     failureFlash: true
 }));
+
+//Functions 
+
 
 module.exports = router;
