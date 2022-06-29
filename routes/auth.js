@@ -38,7 +38,7 @@ router.post('/register', async (req, res) => {
         });
         res.redirect('http://localhost:3000/auth/user/login');
     }catch (err) {
-        res.status(400).redirect('http://localhost:3000/auth/user/status-400');
+        res.status(400).send('There was an error saving the user');
         console.log(err);
     }
 });

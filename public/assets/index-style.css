@@ -103,7 +103,8 @@ header .container {
 }
 
 .left {
-    padding-right: 1.5rem;
+    margin: 0 auto;
+    max-width: 750px;
     background-image: url("../img/B.png");
     background-size: contain;
     background-position: center;
@@ -111,12 +112,11 @@ header .container {
 }
 
 .right {
-    padding-left: 1.5rem;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .right img {
-    max-width: 650px;
+    max-width: 750px;
 }
 
 .big-tittle h1{
@@ -215,6 +215,14 @@ footer {
 
 
 @media screen and (max-width: 1696px) {
+    .left {
+        padding-right: 1.5rem;
+    }
+
+    .right {
+        padding-left: 1.5rem;
+    }
+
     .big-tittle h1 {
         font-size: 2.5rem;
     }
@@ -268,12 +276,10 @@ footer {
     }
 
     .right {
-        margin: 0 auto;
         padding: 0;
     }
 
     .left {
-        margin: 0 auto;
         padding: 0;
     }
 
