@@ -96,22 +96,22 @@ header .container {
     background: var(--backgroundColor);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 1rem 1.5rem;
+    padding: 1rem 3rem;
     align-items: center;
     justify-content: center;
     margin-top: 100px;
 }
 
 .left {
-    padding: 1.5rem;
+    padding-right: 1.5rem;
     background-image: url("../img/B.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-
 .right {
+    padding-left: 1.5rem;
     margin: auto;
 }
 
@@ -255,7 +255,6 @@ footer {
 }
 
 @media screen and (max-width: 970px) {
-
     .showcase-area .container {
         grid-template-columns: 1fr;
         justify-content: center;
@@ -270,10 +269,12 @@ footer {
 
     .right {
         margin: 0 auto;
+        padding: 0;
     }
 
     .left {
         margin: 0 auto;
+        padding: 0;
     }
 
     .big-tittle {
