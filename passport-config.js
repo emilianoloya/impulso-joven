@@ -7,29 +7,34 @@ const bcrypt = require('bcryptjs');
 const User = require('./models/User');
 
 //Initialize Passport Function
-function initialize(passport) {
+const initialize = (passport) =>  {
+    //Checks if user email exists in db and compares password
     const authenticateUser = async (email, password, done) => {
-        const user = await User.findOne({ email: email})
-        if (!user) {
-            return done(null, false, { message: 'Email not registered'});
+
+        const user = await User.findOne({ email: email });
+
+        if(!user) {
+            return done(null, false, { message: 'Correo electronico o Contraseña incorrecta' });
         }
-        //Match password
+
         try {
-            if (await bcrypt.compare(password, user.password)) {
-                return done(null, user);
+            if(bcrypt.compare(password, user.password)) {
+                return done(null, user)
             } else {
-                return done(null, false, { message: 'Password incorrect'});
+                return done(null, false, { message: 'Correo electronico o Contraseña incorrecta' })
             }
-        }catch(error) {
-            return done(error);
+        } catch(err) {
+            return done(err);;
         }
-    }
-    passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser));
+    };
+
+    passport.use(new LocalStrategy({ usernameField: 'email'}, authenticateUser));
     passport.serializeUser((user, done) => done(null, user.id));
     passport.deserializeUser((id, done) => {
-        User.findById(id, (error, user) => {
-            done(error, user);
-        })});
+        User.findById(id, (err, user) => {
+            return done(err, user);
+        });
+    });
 };
 
 module.exports = initialize;

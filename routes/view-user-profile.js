@@ -21,11 +21,12 @@ const getProfileByUsername = async (req, res) => {
             res.status(404).send('User Not Found.');
         } else {
             //If success render profile and fetch user data to view-profile.ejs.
-            res.render('view-profile.ejs', {user: user});
+            res.render('view-user-profile.ejs', {user: user});
         }
     } catch (err) {
         //In case there is an error in the server send a status 500 and a log the error.
         res.status(500).send('There was an Error on the Server.');
+        console.log(err);
     }
 };
 

@@ -45,12 +45,9 @@ router.post('/register', async (req, res) => {
 
 //LOGIN
 router.post('/login', passport.authenticate('local', {
-    successRedirect: ' ',
+    successRedirect: 'http://localhost:3000/auth/user/home',
     failureRedirect: 'http://localhost:3000/auth/user/login',
-    failureFlash: true
+    failureMessage: true
 }));
-
-//FUNCTIONS
-
 
 module.exports = router;

@@ -10,11 +10,14 @@ require('dotenv/config');
 //IMPORT ROUTES
 const indexRoute = require('./routes/index');
 const authRoute = require('./routes/auth');
-const profileRoute = require('./routes/profiles');
+const authUserProfile = require('./routes/auth-user');
+const viewUserProfileRoute = require('./routes/view-user-profile');
 
 //IMPORT PASSPORT CONFIGURATION
-const initializePassport = require('./passport-config');
-initializePassport(passport);
+const initilizePassport = require('./passport-config');
+
+//Initialize passport configuration function
+initilizePassport(passport);
 
 //CONNECT TO DATABASE
 mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true}, () => console.log("Connected to Database"));
@@ -40,8 +43,8 @@ app.use(passport.session());
 
 //ROUTE MIDDLEWARES
 app.use('/', indexRoute);
-app.use('/auth/user', authRoute);
-app.use('/profile', profileRoute);
+app.use('/auth/user', authRoute, authUserProfile);
+app.use('/user', viewUserProfileRoute);
 
 //CONNECTION TO SERVER
 app.listen(3000, () => console.log('Server is running'));
