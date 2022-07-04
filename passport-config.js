@@ -15,17 +15,17 @@ const initialize = (passport) =>  {
 
         if(!user) {
             return done(null, false, { message: 'Correo electronico o Contraseña incorrecta' });
-        }
+        };
 
         try {
-            if(bcrypt.compare(password, user.password)) {
-                return done(null, user)
+            if(await bcrypt.compare(password, user.password)) {
+                return done(null, user);
             } else {
-                return done(null, false, { message: 'Correo electronico o Contraseña incorrecta' })
-            }
+                return done(null, false, { message: 'Correo electronico o Contraseña incorrecta' });
+            };
         } catch(err) {
             return done(err);;
-        }
+        };
     };
 
     passport.use(new LocalStrategy({ usernameField: 'email'}, authenticateUser));

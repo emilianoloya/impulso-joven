@@ -5,6 +5,7 @@ const passport = require('passport');
 
 //IMPORT MODELS
 const User = require("../models/User");
+const { route } = require('./auth-user');
 
 //GET AUTH ROUTES
 //Get register page.
@@ -40,14 +41,14 @@ router.post('/register', async (req, res) => {
     }catch (err) {
         res.status(400).send('There was an error saving the user');
         console.log(err);
-    }
+    };
 });
 
 //LOGIN
-router.post('/login', passport.authenticate('local', {
-    successRedirect: 'http://localhost:3000/auth/user/home',
-    failureRedirect: 'http://localhost:3000/auth/user/login',
-    failureMessage: true
-}));
+router.post('/login', passport.authenticate('local', 
+    { failureRedirect: 'http://localhost:3000/auth/user/login', failureMessage: true}), 
+    (req, res) => {
+        res.redirect('http://localhost:3000/auth/user/home');
+    });
 
 module.exports = router;
