@@ -9,20 +9,16 @@ const { route } = require('./auth-user');
 
 //GET AUTH ROUTES
 //Get register page.
-router.get('/register', (req, res) => {
+router.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs');
 });
 //Get login page.
-router.get('/login', (req, res) => {
+router.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs');
 });
-//Get error page while trying save user.
-router.get('/status-400', (req, res) => {
-    res.render('status-400.ejs')
-})
 
 //REGISTER
-router.post('/register', async (req, res) => {
+router.post('/register', checkNotAuthenticated, async (req, res) => {
     //Hash password
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(req.body.password, salt);
@@ -45,10 +41,19 @@ router.post('/register', async (req, res) => {
 });
 
 //LOGIN
-router.post('/login', passport.authenticate('local', 
+router.post('/login', checkNotAuthenticated, passport.authenticate('local', 
     { failureRedirect: 'http://localhost:3000/auth/user/login', failureMessage: true}), 
     (req, res) => {
         res.redirect('http://localhost:3000/auth/user/home');
     });
+
+//FUNCTIONS
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+       return res.redirect('http://localhost:3000/auth/user/home');
+    }
+
+    next();
+}
 
 module.exports = router;
