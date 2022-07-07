@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require('express-flash');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const app = express();
 require('dotenv/config');
 
@@ -41,6 +42,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//METHOD OVERRIDE MIDDLEWARES
+app.use(methodOverride('_method'));
 //ROUTE MIDDLEWARES
 app.use('/', indexRoute);
 app.use('/auth/user', authRoute, authUserProfile);

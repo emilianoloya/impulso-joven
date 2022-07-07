@@ -5,7 +5,6 @@ const passport = require('passport');
 
 //IMPORT MODELS
 const User = require("../models/User");
-const { route } = require('./auth-user');
 
 //GET AUTH ROUTES
 //Get register page.

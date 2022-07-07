@@ -19,6 +19,17 @@ router.get('/config', checkAuthentication, (req, res) => {
     res.render('user-config.ejs', { user: req.user });
 })
 
+//LOGOUT
+router.delete('/logout', checkAuthentication, (req, res, next) => {
+    req.logOut((err) => {
+        if (err) {
+            next(err);
+        }
+
+        res.redirect('http://localhost:3000');
+    });
+})
+
 //FUNCTIONS
 //Checks user authentication
 function checkAuthentication(req, res, next) {
