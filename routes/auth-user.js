@@ -6,15 +6,15 @@ const passport = require('passport');
 const User = require('../models/User');
 
 //GET USER ROUTES
-//Get authenticated user profile front page.
+//Get authenticated user home front page.
 router.get('/home', checkAuthentication, (req, res) => {
     res.render('user-home.ejs', { user: req.user});
 });
-
+//Get authenticated user profile page.
 router.get('/profile', checkAuthentication, (req, res) => {
     res.render('user-profile.ejs', { user: req.user });
 });
-
+//Get authenticated user configuration page.
 router.get('/config', checkAuthentication, (req, res) => {
     res.render('user-config.ejs', { user: req.user });
 })
