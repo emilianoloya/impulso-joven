@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 //index route
-router.get('/', checkNotAuthenticated, (req, res) => {
+router.get('/', checkUserAutentication, (req, res) => {
     res.render('index.ejs')
 });
 
-function checkNotAuthenticated(req, res, next) {
+function checkUserAutentication(req, res, next) {
     if (req.isAuthenticated()) {
         return res.redirect('http://localhost:3000/auth/user/home');
     }

@@ -37,11 +37,25 @@
     transition: .3s;
   }
 
+  button {
+    font-size: 40px;
+    border: none;
+    background: none;
+    width: 100%;
+    padding: 1.2rem;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
   .boca-logo {
     width: 30px;
   }
 
   nav a:hover {
+    transform: scale(1.10);
+  }
+
+  button:hover {
     transform: scale(1.10);
   }
   

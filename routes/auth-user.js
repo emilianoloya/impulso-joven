@@ -6,38 +6,42 @@ const passport = require('passport');
 const User = require('../models/User');
 
 //GET USER ROUTES
-//Get authenticated user home front page.
-router.get('/home', checkAuthentication, (req, res) => {
-    res.render('user-home.ejs', { user: req.user});
+//Get authenticated user home page.
+router.get('/home', userIsAuthenticated, (req, res) => {
+    res.render('user-home.ejs', { user: req.user });
 });
 //Get authenticated user profile page.
-router.get('/profile', checkAuthentication, (req, res) => {
+router.get('/profile', userIsAuthenticated, (req, res) => {
     res.render('user-profile.ejs', { user: req.user });
-});
-//Get authenticated user configuration page.
-router.get('/config', checkAuthentication, (req, res) => {
+})
+
+router.get('/config', userIsAuthenticated, (req, res) => {
     res.render('user-config.ejs', { user: req.user });
 })
 
 //LOGOUT
-router.delete('/logout', checkAuthentication, (req, res, next) => {
+router.delete('/logout', (req, res, next) => {
     req.logOut((err) => {
-        if (err) {
-            next(err);
-        }
-
-        res.redirect('http://localhost:3000');
+       return next(err);
     });
-})
+
+    res.redirect('http://localhost:3000');
+});
 
 //FUNCTIONS
 //Checks user authentication
-function checkAuthentication(req, res, next) {
-    if(req.isAuthenticated()) {
-        return next();
-    };
+async function userIsAuthenticated(req, res, next) {
+    try {
 
-    res.redirect('http://localhost:3000/auth/user/login');
+        if(req.isAuthenticated()) {
+            return next();
+        };
+    
+        res.redirect('http://localhost:3000/auth/user/login');
+
+    } catch (err) {
+        res.send(err);
+    }
 };
 
 module.exports = router;
