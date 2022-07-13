@@ -10,7 +10,7 @@ require('dotenv/config');
 
 //IMPORT ROUTES
 const indexRoute = require('./routes/index');
-const authRoute = require('./routes/auth');
+const authRoute = require('./routes/authentication');
 const authUserProfile = require('./routes/auth-user');
 const viewUserProfileRoute = require('./routes/view-user-profile');
 

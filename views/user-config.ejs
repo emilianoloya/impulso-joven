@@ -13,7 +13,9 @@
         <a href="http://localhost:3000/auth/user/home"><img class="boca-logo" src="/public/img/B-azul.png"></a>
         <a href="http://localhost:3000/auth/user/profile"><i class="bx bx-user-circle" style="color:#00aeef"></i></a>
         <a href="http://localhost:3000/auth/user/config"><i class="bx bx-cog" style="color:#234093"></i></a>
-        <a href="#"><i class="bx bx-log-out" style="color: #234093;"></i></a>
+        <form action="http://localhost:3000/auth/user/logout?_method=DELETE" method="POST">
+          <button type="submit"><i class="bx bx-log-out" style="color: #234093;"></i></button>
+        </form>
       </nav>
 
       <div class="container">
