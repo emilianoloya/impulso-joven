@@ -14,18 +14,29 @@
     --mainColor: #234093;
     --secondaryColor: #00aeef;
   }
+
+  .big-wrapper {
+    background-color: var(--backgoundColor);
+    padding-left: 10rem;
+    padding-right: 5rem;
+  }
   
   .container {
-    background: var(--backgoundColor);
+    background: red;
     min-height: 100vh;
-    width: 100%;
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
   }
 
-  .container h1 {
+  .home-container {
+    background: var(--backgoundColor);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .home-container h1{
     color: var(--secondaryColor);
   }
   
@@ -70,5 +81,7 @@
     background: var(--secondaryBackground);
     box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   }
+
+
   
  
