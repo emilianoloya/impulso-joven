@@ -13,11 +13,14 @@ router.get('/home', userIsAuthenticated, (req, res) => {
 //Get authenticated user profile page.
 router.get('/profile', userIsAuthenticated, (req, res) => {
     res.render('user-profile.ejs', { user: req.user });
-})
+});
 
 router.get('/config', userIsAuthenticated, (req, res) => {
     res.render('user-config.ejs', { user: req.user });
-})
+});
+
+//UPDATE USER INFORMATION
+
 
 //LOGOUT
 router.delete('/logout', (req, res, next) => {

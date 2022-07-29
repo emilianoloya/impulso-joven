@@ -167,6 +167,8 @@ header .container {
     transform: scale(1.10);
 }
 
+
+
 .menu {
     position: relative;
     z-index: 99;
@@ -214,6 +216,41 @@ footer {
     width: 180px;
 }
 
+@keyframes tonext {
+    75% {
+        left: 0;
+    }
+
+    95% {
+        left: 100%;
+    }
+
+    98% {
+        left: 100%;
+    }
+
+    99% {
+        left: 0;
+    }
+}
+
+@keyframes tostart {
+    75% {
+        left: 0;
+    }
+
+    95% {
+        left: -300%;
+    }
+
+    98% {
+        left: -300%;
+    }
+
+    99% {
+        left: 0;
+    }
+}
 
 @media screen and (max-width: 1696px) {
     .left {
